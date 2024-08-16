@@ -24,7 +24,7 @@ const Sidebar = () => {
         isMenuOpen ? "w-64" : "w-16"
       } min-h-[calc(100%-64px)]`}
     >
-      <div className="overflow-y-hidden hover:overflow-y-scroll h-screen sidebar-container">
+      <div className="pl-1 overflow-y-hidden hover:overflow-y-scroll overflow-x-hidden h-screen sidebar-container">
         <div className="space-y-6">
           <Link
             to="/"
@@ -33,77 +33,85 @@ const Sidebar = () => {
             <img src={homeIcon} alt="Home" className="w-6 h-6" />
             {isMenuOpen && <p>Home</p>}
           </Link>
-          <p className="flex items-center space-x-4 hover:bg-gray-700 p-2 rounded-md">
+          <div className="flex items-center space-x-4 hover:bg-gray-700 p-2 rounded-md">
             <img src={exploreIcon} alt="Explore" className="w-6 h-6" />
             {isMenuOpen && <p>Explore</p>}
-          </p>
-          <p className="flex items-center space-x-4 hover:bg-gray-700 p-2 rounded-md">
+          </div>
+          <div className="flex items-center space-x-4 hover:bg-gray-700 p-2 rounded-md">
             <img
               src={subscriptionIcon}
               alt="Subscription"
               className="w-6 h-6"
             />
             {isMenuOpen && <p>Subscription</p>}
-          </p>
-          <p className="flex items-center space-x-4 hover:bg-gray-700 p-2 rounded-md">
+          </div>
+          <div className="flex items-center space-x-4 hover:bg-gray-700 p-2 rounded-md">
             <img src={libraryIcon} alt="Library" className="w-6 h-6" />
             {isMenuOpen && <p>Library</p>}
-          </p>
-          <p className="flex items-center space-x-4 hover:bg-gray-700 p-2 rounded-md">
+          </div>
+          <div className="flex items-center space-x-4 hover:bg-gray-700 p-2 rounded-md">
             <img src={historyIcon} alt="History" className="w-6 h-6" />
             {isMenuOpen && <p>History</p>}
-          </p>
-          <p className="flex items-center space-x-4 hover:bg-gray-700 p-2 rounded-md">
+          </div>
+          <div className="flex items-center space-x-4 hover:bg-gray-700 p-2 rounded-md">
             <img src={playlistIcon} alt="Playlist" className="w-6 h-6" />
             {isMenuOpen && <p>Playlist</p>}
-          </p>
-          <p className="flex items-center space-x-4 hover:bg-gray-700 p-2 rounded-md">
+          </div>
+          <div className="flex items-center space-x-4 hover:bg-gray-700 p-2 rounded-md">
             <img src={messagesIcon} alt="Messages" className="w-6 h-6" />
             {isMenuOpen && <p>Messages</p>}
-          </p>
-          <p className="flex items-center space-x-4 hover:bg-gray-700 p-2 rounded-md">
+          </div>
+          <div className="flex items-center space-x-4 hover:bg-gray-700 p-2 rounded-md">
             <img src={showMoreIcon} alt="Show More" className="w-6 h-6" />
             {isMenuOpen && <p>Show More</p>}
-          </p>
-        </div>
-
-        <div className="mt-8">
-          <h3 className="text-sm font-semibold text-gray-400">SUBSCRIPTIONS</h3>
-          <div className="space-y-4 mt-4">
-            <p className="flex items-center space-x-4 hover:bg-gray-700 p-2 rounded-md">
-              <img src={jackIcon} alt="Jack" className="w-6 h-6 rounded-full" />
-              {isMenuOpen && <p>Jack &bull;</p>}
-            </p>
-            <p className="flex items-center space-x-4 hover:bg-gray-700 p-2 rounded-md">
-              <img
-                src={simonIcon}
-                alt="Simon"
-                className="w-6 h-6 rounded-full"
-              />
-              {isMenuOpen && <p>Simon</p>}
-            </p>
-            <p className="flex items-center space-x-4 hover:bg-gray-700 p-2 rounded-md">
-              <img src={tomIcon} alt="Tom" className="w-6 h-6 rounded-full" />
-              {isMenuOpen && <p>Tom &bull;</p>}
-            </p>
-            <p className="flex items-center space-x-4 hover:bg-gray-700 p-2 rounded-md">
-              <img
-                src={meganIcon}
-                alt="Megan Fox"
-                className="w-6 h-6 rounded-full"
-              />
-              {isMenuOpen && <p>Megan Fox &bull;</p>}
-            </p>
-            <p className="flex items-center space-x-4 hover:bg-gray-700 p-2 rounded-md">
-              <img
-                src={cameronIcon}
-                alt="Cameron Green"
-                className="w-6 h-6 rounded-full"
-              />
-              {isMenuOpen && <p>Cameron Green</p>}
-            </p>
           </div>
         </div>
+
+        {isMenuOpen && (
+          <div className="mt-8">
+            <h3 className="text-sm font-semibold text-gray-400">
+              SUBSCRIPTIONS
+            </h3>
+            <div className="space-y-4 mt-4">
+              <div className="flex items-center space-x-4 hover:bg-gray-700 p-2 rounded-md">
+                <img
+                  src={jackIcon}
+                  alt="Jack"
+                  className="w-6 h-6 rounded-full"
+                />
+                {isMenuOpen && <p>Jack &bull;</p>}
+              </div>
+              <div className="flex items-center space-x-4 hover:bg-gray-700 p-2 rounded-md">
+                <img
+                  src={simonIcon}
+                  alt="Simon"
+                  className="w-6 h-6 rounded-full"
+                />
+                {isMenuOpen && <p>Simon</p>}
+              </div>
+              <div className="flex items-center space-x-4 hover:bg-gray-700 p-2 rounded-md">
+                <img src={tomIcon} alt="Tom" className="w-6 h-6 rounded-full" />
+                {isMenuOpen && <p>Tom &bull;</p>}
+              </div>
+              <div className="flex items-center space-x-4 hover:bg-gray-700 p-2 rounded-md">
+                <img
+                  src={meganIcon}
+                  alt="Megan Fox"
+                  className="w-6 h-6 rounded-full"
+                />
+                {isMenuOpen && <p>Megan Fox &bull;</p>}
+              </div>
+              <div className="flex items-center space-x-4 hover:bg-gray-700 p-2 rounded-md">
+                <img
+                  src={cameronIcon}
+                  alt="Cameron Green"
+                  className="w-6 h-6 rounded-full"
+                />
+                {isMenuOpen && <p>Cameron Green</p>}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

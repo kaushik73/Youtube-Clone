@@ -1,0 +1,15 @@
+export const buttonData = [
+  "Music",
+  "Kapil Sharma",
+  "Cricket",
+  "Volleyball",
+  "Intimetec",
+  "Kaushik",
+  "Lofi",
+  "Web series",
+  "Movies",
+  "Job",
+  "MEAN",
+  "MERN",
+  "React",
+];

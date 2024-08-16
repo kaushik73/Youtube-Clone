@@ -27,10 +27,7 @@ function App() {
   return (
     <Provider store={appStore}>
       <div className="h-screen flex flex-col">
-        <Head />
-        <div className="mt-16">
-          <RouterProvider router={appRouter} />
-        </div>
+        <RouterProvider router={appRouter} />
       </div>
     </Provider>
   );

@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { closeMenu } from "../utils/store/configSlice";
 import { useSearchParams } from "react-router-dom";
+import CommentsContainer from "./CommentsContainer";
+import LiveChat from "./LiveChat";
 
 const WatchPage = () => {
   const dispatch = useDispatch();
@@ -15,19 +17,29 @@ const WatchPage = () => {
   return (
     <div
       className={`mr-2 px-2 flex-1 overflow-y-auto ${
-        false ? "ml-64" : "ml-16"
-      } `}
+        isMenuOpen ? "ml-64" : "ml-16"
+      }`}
     >
-      <div className="bg-red-900 min-w-[60%] min-h-[40%]">
-        <iframe
-          className="absolute top-0 left-0 w-full h-full"
-          src={`https://www.youtube.com/embed/${youtubeLinkId}`}
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerPolicy="strict-origin-when-cross-origin"
-          allowFullScreen
-        ></iframe>
+      <div className="flex">
+        <div className="bg-red-900 p-4 w-[75%] h-[40%]">
+          <iframe
+            className=""
+            width="800"
+            height="400"
+            src={`https://www.youtube.com/embed/${youtubeLinkId}`}
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          ></iframe>
+        </div>
+        <div className="relative">
+          <LiveChat />
+        </div>
+      </div>
+
+      <div className="w-[75%]">
+        <CommentsContainer />
       </div>
     </div>
   );
