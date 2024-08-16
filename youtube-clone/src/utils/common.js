@@ -5,8 +5,7 @@ export function getTimeDifference(publishDate) {
   let years = currentDate.getFullYear() - publishDateObj.getFullYear();
   let months = currentDate.getMonth() - publishDateObj.getMonth();
   let days = currentDate.getDate() - publishDateObj.getDate();
-  let hours = -currentDate.getHours() + publishDateObj.getHours();
-
+  let hours = +currentDate.getHours() - publishDateObj.getHours();
   //   Adjust the values if necessary
   if (days < 0) {
     months -= 1;
@@ -25,15 +24,14 @@ export function getTimeDifference(publishDate) {
 
   if (years === 0 && months === 0) {
     if (days === 0) {
-      return `${hours} ago`;
+      if (hours === 0) return "Just Now";
+      return `${hours} hour ago`;
     }
     if (days === 1) return `${days} day ago`;
     else return `${days} days ago`;
   }
   if (years === 0) return `${months} month ago`;
   return `${years} years ago`;
-
-  //   console.log(time, "times");
 }
 
 export const getViewsNumber = (number) => {
@@ -47,4 +45,6 @@ export const getViewsNumber = (number) => {
     number = Math.floor(number);
     return `${number}k views`;
   }
+
+  return `${number} views`;
 };

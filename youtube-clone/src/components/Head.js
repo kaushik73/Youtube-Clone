@@ -4,7 +4,7 @@ import cosTubeLogo from "../images/cosTubeLogo.png";
 import search_icon from "../images/search.png";
 import notification_icon from "../images/notification.png";
 import upload_icon from "../images/upload.png";
-import tom_icon from "../images/tom.jpg";
+import userIcon from "../images/userIcon.png";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/store/configSlice";
 import {
@@ -30,6 +30,7 @@ const Head = () => {
 
   const handleSuggestionClick = (suggestion) => {
     setShowSuggestions(false);
+    setSearchQuery("");
     // const suggestionVideoIds = fetchVideoIds(suggestion);
     dispatch(setSearchText(suggestion));
     navigate("/");
@@ -37,7 +38,6 @@ const Head = () => {
   const getSearchSuggestions = useCallback(async () => {
     if (!searchQuery) return;
 
-    console.log(`${YOUTUBE_SEARCH_SUGGESTION_API}${searchQuery}`, "API call");
     try {
       const response = await fetch(
         `${YOUTUBE_SEARCH_SUGGESTION_API}${searchQuery}`
@@ -98,19 +98,17 @@ const Head = () => {
           />
           <button
             type="submit"
-            className="flex items-center justify-center h-10 overflow-hidden w-16 bg-gray-100 border border-gray-300 rounded-r-full"
+            disabled={searchQuery.replaceAll(" ", "") === ""}
+            onClick={() => handleSuggestionClick(searchQuery)}
+            className="flex items-center justify-center h-10 overflow-hidden w-16 bg-gray-100 border border-gray-300 rounded-r-full disabled:opacity-20"
           >
             <img alt="search icon" src={search_icon} className="h-5 w-5" />
           </button>
         </div>
-        {/* <img
-          alt="voice search"
-          src={voice_search_icon}
-          className="ml-5 h-5 w-5 cursor-pointer"
-        /> */}
-        {showSuggestions && suggestions.length > 0 && (
-          <div className="absolute left-0 right-0 bg-white border border-gray-300 rounded-lg mt-0 z-10">
-            <ul className="max-h-64 overflow-y-hidden p-2">
+        {/* Suggestions */}
+        {searchQuery != "" && showSuggestions && suggestions.length > 0 && (
+          <div className="absolute left-0 right-0 bg-white border border-gray-300 rounded-lg mt-0 ">
+            <ul className="max-h-64 overflow-y-hidden p-2 z-[3]">
               {suggestions.map((suggestion, index) => (
                 <li
                   key={index}
@@ -138,7 +136,7 @@ const Head = () => {
         />
         <img
           alt="tom icon"
-          src={tom_icon}
+          src={userIcon}
           className="h-8 w-8 rounded-full cursor-pointer"
         />
       </div>

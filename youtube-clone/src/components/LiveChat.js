@@ -7,7 +7,7 @@ import {
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addMessage } from "../utils/store/liveMessageSlice";
-import { DEFAULT_LIVE_COMMENT_USERNAME } from "../utils/constants";
+import { DEFAULT_COMMENT_USERNAME } from "../utils/constants";
 import { useRef } from "react";
 
 const LiveChat = () => {
@@ -33,7 +33,7 @@ const LiveChat = () => {
   const handleAddLiveComment = () => {
     dispatch(
       addMessage({
-        name: DEFAULT_LIVE_COMMENT_USERNAME,
+        name: DEFAULT_COMMENT_USERNAME,
         message: message.current.value,
       })
     );

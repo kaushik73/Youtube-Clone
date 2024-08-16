@@ -1,4 +1,5 @@
 export const buttonData = [
+  "ALL",
   "Music",
   "Kapil Sharma",
   "Cricket",
@@ -12,4 +13,11 @@ export const buttonData = [
   "MEAN",
   "MERN",
   "React",
+  "React",
+  "React",
+  "React",
+  "React",
+  "React",
+  "React",
+  "Reacddt",
 ];

@@ -28,11 +28,14 @@ const useFetchVideos = () => {
     navigate("/");
 
     let url;
-    if (searchText.trim() !== "") {
+    const trimmedText = searchText.trim();
+    if (trimmedText !== "" || trimmedText !== "ALL") {
+      console.log("if called");
       url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=${encodeURIComponent(
         searchText
       )}&type=video&key=${GOOGLE_API_KEY}`;
-    } else {
+    } else if (trimmedText === "" || trimmedText === "ALL") {
+      console.log("elsepart");
       url = YOUTUBE_VIDEO_API;
     }
 
